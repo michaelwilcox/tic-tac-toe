@@ -27,4 +27,13 @@ test('correctly renders a winner', () => {
 
   winner = findWinner(board);
   expect(winner).toEqual('D');
+
+  board = [
+    'X', null, null, 
+    'O', null, 'O',
+    'X', null, null
+  ];
+
+  winner = findWinner(board);
+  expect(winner).toEqual(null);
 });
