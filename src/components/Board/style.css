@@ -1,0 +1,6 @@
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 5px solid black;
+    border-left: 5px solid black;
+}

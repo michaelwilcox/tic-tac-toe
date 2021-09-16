@@ -1,8 +1,30 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render } from '@testing-library/react';
+import { findWinner } from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test('correctly renders a winner', () => {
+  let board = [
+    'X', 'O', null, 
+    'X', null, 'O',
+    'X', null, null
+  ];
+  let winner = findWinner(board);
+  expect(winner).toEqual('X');
+
+  board = [
+    'X', 'O', null, 
+     null, 'O', 'X',
+    'X', 'O', null
+  ];
+
+  winner = findWinner(board);
+  expect(winner).toEqual('O');
+
+  board = [
+    'X', 'O', 'X', 
+     'O', 'O', 'X',
+    'X', 'X', 'O'
+  ];
+
+  winner = findWinner(board);
+  expect(winner).toEqual('D');
 });
